@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>毕业倒计时案例</title>
+    <style>
+      .countdown {
+        width: 240px;
+        height: 305px;
+        background-color: #9c2b28;
+        color: #fff;
+        text-align: center;
+        line-height: 1;
+        /* background-size: 240px; */
+        /* float: left; */
+        overflow: hidden;
+      }
+      .countdown .next {
+        font-size: 16px;
+        margin: 25px 0 14px;
+      }
+      .countdown .tips {
+        margin-top: 80px;
+        font-size: 23px;
+      }
+      .countdown .clock {
+        width: 142px;
+        margin: 18px auto 0;
+        overflow: hidden;
+      }
+      .countdown .clock span {
+        width: 34px;
+        height: 34px;
+        border-radius: 2px;
+        background-color: #303430;
+      }
+      .countdown .clock span {
+        display: block;
+        text-align: center;
+        line-height: 34px;
+        font-size: 23px;
+        float: left;
+        margin: 4px;
+      }
+      #hour,
+      #minutes {
+        position: relative;
+      }
+      #hour::after,
+      #minutes::after {
+        content: ':';
+        position: absolute;
+        right: -8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="countdown">
+      <p class="next"></p>
+      <p class="title">下班倒计时</p>
+      <p class="clock">
+        <span id="hour"></span>
+        <span id="minutes"></span>
+        <span id="second"></span>
+      </p>
+      <p class="tips">18:30:00下课</p>
+    </div>
+    <script>
+      // ------1.获取当前年月日------------
+      function getFormatDate() {
+        const date = new Date()
+        const y = date.getFullYear()
+        const m = date.getMonth() + 1
+        const d = date.getDate()
+        return `今天是${y}年${m}月${d}日`
+      }
+      const next = document.querySelector('.next')
+      // console.log(getFormatDate())
+      next.innerHTML = getFormatDate()
+
+      // ---------2.倒计时------
+      // const now = +new Date()
+      // const last = +new Date('2022-11-30 00:36:00')
+      // console.log(now, last)
+      // const h = parseInt(((last - now) / 1000 / 3600) % 24)
+      // const m = parseInt(((last - now) / 1000 / 60) % 60)
+      // const s = parseInt(((last - now) / 1000) % 60)
+
+      // const hour = document.querySelector('#hour')
+      // const minutes = document.querySelector('#minutes')
+      // const second = document.querySelector('#second')
+      // hour.innerHTML = h
+      // minutes.innerHTML = m
+      // second.innerHTML = s
+
+      function getFormatTime() {
+        const now = +new Date()
+        const last = +new Date('2022-11-30 00:36:00')
+        let h = parseInt(((last - now) / 1000 / 3600) % 24)
+        let m = parseInt(((last - now) / 1000 / 60) % 60)
+        let s = parseInt(((last - now) / 1000) % 60)
+        h = h < 10 ? '0' + h : h
+        m = m < 10 ? '0' + m : m
+        s = s < 10 ? '0' + s : s
+        return {
+          h,
+          m,
+          s,
+        }
+      }
+      hour.innerHTML = getFormatTime().h
+      minutes.innerHTML = getFormatTime().m
+      second.innerHTML = getFormatTime().s
+      setInterval(() => {
+        // getFormatTime()
+        hour.innerHTML = getFormatTime().h
+        minutes.innerHTML = getFormatTime().m
+        second.innerHTML = getFormatTime().s
+      }, 1000)
+    </script>
+  </body>
+</html>
