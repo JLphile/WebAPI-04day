@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>关闭多个广告</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        display: flex;
+        justify-content: space-between;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      我是广告1
+      <div class="box1">X</div>
+    </div>
+    <div class="box">
+      广告2
+      <div class="box1">X</div>
+    </div>
+    <div class="box">
+      广告3
+      <div class="box1">X</div>
+    </div>
+    <script>
+      const closeAdds = document.querySelectorAll('.box1')
+      for (let i = 0; i < closeAdds.length; i++) {
+        closeAdds[i].addEventListener('click', function () {
+          this.parentNode.style.display = 'none'
+        })
+      }
+    </script>
+  </body>
+</html>

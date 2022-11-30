@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul li {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+    }
+    .box-w {
+      max-width: 1225px;
+      margin: 0 auto;
+      background-color: #fff;
+    }
+    .box-hd {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+    .box-hd > a {
+      display: inline-block;
+    }
+    .box-bd ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .box-bd ul li {
+      padding: 4px;
+      display: inline-block;
+    }
+    .box-bd ul li h4 {
+      padding: 10px;
+    }
+    .bds {
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <div class="box-w">
+      <div class="box-hd">
+        <h3>精品推荐</h3>
+        <a href="#">查看全部</a>
+      </div>
+      <div class="box-bd">
+        <ul class="clearfix">
+          <!-- <li>
+            <a href="#">
+              <img src="images/course01.jpg" alt="" />
+              <h4>data</h4>
+              <div class="bds"><span>高级</span>·<span>data</span>人在学习</div>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+    <script>
+      let data = [
+        {
+          src: 'images/course01.jpg',
+          title: 'Think PHP 博客系统实战演练',
+          num: 1123,
+        },
+        {
+          src: 'images/course02.jpg',
+          title: 'Android 实战演练项目',
+          num: 1123,
+        },
+        {
+          src: 'images/course03.jpg',
+          title: 'Angular2 大前端商城实战项目演练',
+          num: 123,
+        },
+        {
+          src: 'images/course04.jpg',
+          title: 'Android APP',
+          num: 389,
+        },
+        {
+          src: 'images/course05.jpg',
+          title: 'UGUI 源码深度分析案例',
+          num: 2536,
+        },
+        {
+          src: 'images/course06.jpg',
+          title: 'Kami2 首页界面切换效果实战演练',
+          num: 361,
+        },
+        {
+          src: 'images/course07.jpg',
+          title: 'UNITY 从入门到精通实战案例',
+          num: 2254,
+        },
+        {
+          src: 'images/course07.jpg',
+          title: 'UNITY 从入门到精通实战案例',
+          num: 2254,
+        },
+        {
+          src: 'images/course07.jpg',
+          title: 'UNITY 从入门到精通实战案例',
+          num: 2254,
+        },
+        {
+          src: 'images/course07.jpg',
+          title: 'UNITY 从入门到精通实战案例',
+          num: 2254,
+        },
+      ]
+      const ul = document.querySelector('.box-bd ul')
+
+      for (let i = 0; i < data.length; i++) {
+        const li = document.createElement('li')
+        li.innerHTML = `
+        <a href="#">
+              <img src=${data[i].src} alt="" />
+              <h4>${data[i].title}</h4>
+              <div class="bds"><span>高级</span>·<span>${data[i].num}</span>人在学习</div>
+            </a>
+        `
+        ul.appendChild(li)
+      }
+    </script>
+  </body>
+</html>
